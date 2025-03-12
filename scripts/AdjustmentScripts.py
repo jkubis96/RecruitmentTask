@@ -16,6 +16,7 @@ class DataAdj:
     
     def compare_data(self, set1, set2):
         return set(set1) - set(set2)
+    
         
      
     def reduce_data(self, data):
@@ -50,6 +51,24 @@ class DataAdj:
         return TPM_matrix
     
     
+    
+    def data_cleaning(self, data, fun = 'mean'):
+        
+        data = data.drop_duplicates()
+        
+        if fun == 'mean':
+            data = data.groupby(data.index).mean()
+            return data
+
+        elif fun == 'sum':
+            data = data.groupby(data.index).sum()
+            return data
+        
+        else:
+            raise ValueError('That`s the wrong fun parameter. Parameter fun should be included in [sum or mean]')
+            
+
+
     def data_concat(self, data_list:dict):
         
         if len(data_list.keys()) > 1:
