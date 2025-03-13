@@ -1,0 +1,63 @@
+---
+title: "Report - RecruitmentTask - ML"
+author: "Jakub Kubiś"
+output: html_document
+---
+
+
+# Technical Task  
+
+## Omics Model / Embedding for Cell-Line Understanding  
+
+### Goal  
+- Develop an ML/AI model that understands cell lines.  
+
+### Technical Task  
+1. Use [Archs4](https://archs4.org/).  
+2. Choose 3 cell lines that:  
+   - Represent different organs.  
+   - Exist within [DepMap](https://depmap.org/portal/).  
+3. Data considerations:  
+   - You do not need to take all samples; **n=100** would be enough.  
+   - It is enough to use only the **protein-coding genome**.  
+4. Download expression profiles.  
+5. Build an **ML classifier** to distinguish between the selected cell lines.  
+6. Test against **DepMap Profiles**.  
+
+### Completed Tasks  
+- Downloaded **Archs4** data for selected cell lines:  
+  - **Brain** – IMR32  
+  - **Breast** – SKBR3  
+  - **Skin** – A431  
+- Downloaded the **RefGen annotation file** [Homo_sapiens.GRCh38.107] (corresponding to the Archs4 data).  
+- Downloaded **DepMap** data for prediction.  
+- Created scripts for **Archs4 data cleaning and normalization** (TPM – aligned with DepMap data normalization).  
+- Developed scripts for **model handling**.  
+- Developed scripts for **important feature selection**.  
+- Implemented a **class for the model**, including:  
+  - **Imputation**, **scaling**, and **data preprocessing** for prediction.  
+- Built the **model**, including:  
+  - **Train-test split**, **imputer creation**, **data scaling**, **important feature selection**,  
+  - **Confusion matrix analysis**, and **cross-validation**.  
+- Performed **predictions on DepMap data**.  
+- Generated **reports**. 
+
+
+### Data pipe reports:
+
+- [ML preparation](ML_pip.html)
+- [Prediction](prediction.html)
+
+### Code source:
+
+- [RefGen annotation file preparing](gtf_genome_file/prep.R)
+- [Data cleaning and normalization](scripts/AdjustmentScripts.py)
+- [Features selection](scripts/FeaturesSelection.py)
+- [Model handling](scripts/Model.py)
+
+
+
+
+
+
+
